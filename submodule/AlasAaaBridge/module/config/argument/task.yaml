@@ -1,0 +1,60 @@
+# --------------------
+# Define argument group of tasks.
+# --------------------
+
+# ==================== Aaa ====================
+
+Aaa:
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    Aaa:
+      - Emulator
+      - Error
+      - Optimization
+    Restart:
+      - Scheduler
+
+# ==================== Daily ====================
+
+AaaDaily:
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    AaaTrainingDaily:
+      - Scheduler
+      - AaaTrainingDaily
+    AaaBar:
+      - Scheduler
+      - AaaBar
+    AaaExploration:
+      - Scheduler
+      - AaaExploration
+    AaaStorage:
+      - Scheduler
+      - AaaStorage
+    AaaAirship:
+      - Scheduler
+      - AaaAirship
+    AaaMainDaily:
+      - Scheduler
+      - AaaMainDaily
+
+# ==================== Reward ====================
+
+AaaReward:
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    AaaTrain:
+      - Scheduler
+      - AaaTrain
+    AaaFactory:
+      - Scheduler
+      - AaaFactory
+    AaaRecovery:
+      - Scheduler
+      - AaaRecovery
+    AaaReward:
+      - Scheduler
+      - AaaReward

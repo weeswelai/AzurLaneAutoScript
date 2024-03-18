@@ -1,0 +1,92 @@
+# --------------------
+# Define arguments.
+# --------------------
+
+# ==================== Aaa ====================
+
+Scheduler:
+  Enable:
+    type: checkbox
+    value: false
+    option: [ true, false ]
+  NextRun: 2020-01-01 00:00:00
+  Command: Aaa
+  SuccessInterval:
+    value: 0
+    display: hide
+  FailureInterval:
+    value: 120
+    display: hide
+  ServerUpdate:
+    value: 05:00
+    display: hide
+Emulator:
+  Serial:
+    value: auto
+    valuetype: str
+  PackageName:
+    value: auto
+    option: [ auto, com.asharmdolls.bilibili ]
+  ServerName:
+    value: disabled
+    option: [ disabled, ]
+  ScreenshotMethod:
+    value: auto
+    option: [ auto, ADB, ADB_nc, uiautomator2, aScreenCap, aScreenCap_nc, DroidCast, DroidCast_raw, scrcpy ]
+  ControlMethod:
+    value: minitouch
+    option: [ ADB, uiautomator2, minitouch, Hermit, MaaTouch ]
+  ScreenshotDedithering: false
+  AdbRestart: false
+Error:
+  HandleError: true
+  SaveError: true
+  OnePushConfig:
+    type: textarea
+    mode: yaml
+    value: 'provider: null'
+  ScreenshotLength: 1
+Optimization:
+  ScreenshotInterval: 0.3
+  CombatScreenshotInterval: 1.0
+  TaskHoardingDuration: 0
+  WhenTaskQueueEmpty:
+    value: goto_main
+    option: [ stay_there, goto_main, close_game ]
+AaaTrainingDaily:
+  BattleExercises:
+    value: 6
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  HuntingLand:
+    value: 6
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  HuntingAir:
+    value: 6
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  ExpansionTraining:
+    value: 6
+    option: [ 1, 2, 3, 4, 5, 6 ]
+  Resourcepreparation:
+    value: 6
+    option: [ 1, 2, 3, 4, 5, 6 ]
+AaaBar:
+  SendGifts: true 
+  Touch: True
+AaaExploration:
+  Enable: True
+  value: 1
+  option: [ 1, 2, 3, 4, 5, 6 ]
+AaaStorage: 
+  Enable: True
+AaaAirship: 
+  Enable: True
+AaaMainDaily: 
+  Enable: True
+AaaTrain: 
+  Enable: True
+AaaFactory: 
+  Enable: True
+AaaRecovery: 
+  Enable: True
+AaaReward: 
+  Enable: True

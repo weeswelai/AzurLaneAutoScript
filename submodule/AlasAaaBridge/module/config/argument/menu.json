@@ -1,0 +1,32 @@
+{
+  "Aaa": {
+    "menu": "list",
+    "page": "setting",
+    "tasks": [
+      "Aaa",
+      "Restart"
+    ]
+  },
+  "AaaDaily": {
+    "menu": "list",
+    "page": "setting",
+    "tasks": [
+      "AaaTrainingDaily",
+      "AaaBar",
+      "AaaExploration",
+      "AaaStorage",
+      "AaaAirship",
+      "AaaMainDaily"
+    ]
+  },
+  "AaaReward": {
+    "menu": "list",
+    "page": "setting",
+    "tasks": [
+      "AaaTrain",
+      "AaaFactory",
+      "AaaRecovery",
+      "AaaReward"
+    ]
+  }
+}

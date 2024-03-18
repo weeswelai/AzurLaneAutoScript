@@ -1,0 +1,413 @@
+{
+  "Menu": {
+    "Aaa": {
+      "name": "Aaa",
+      "help": ""
+    },
+    "AaaDaily": {
+      "name": "每日任务",
+      "help": ""
+    },
+    "AaaReward": {
+      "name": "收获",
+      "help": ""
+    }
+  },
+  "Task": {
+    "Aaa": {
+      "name": "Aaa设置",
+      "help": ""
+    },
+    "AaaTrainingDaily": {
+      "name": "训练所",
+      "help": ""
+    },
+    "AaaBar": {
+      "name": "酒馆夜话",
+      "help": ""
+    },
+    "AaaExploration": {
+      "name": "探索",
+      "help": ""
+    },
+    "AaaStorage": {
+      "name": "资源仓库",
+      "help": ""
+    },
+    "AaaAirship": {
+      "name": "空艇远征",
+      "help": ""
+    },
+    "AaaMainDaily": {
+      "name": "每日主线",
+      "help": ""
+    },
+    "AaaTrain": {
+      "name": "武装押运",
+      "help": ""
+    },
+    "AaaFactory": {
+      "name": "意识工厂",
+      "help": ""
+    },
+    "AaaRecovery": {
+      "name": "维修会",
+      "help": ""
+    },
+    "AaaReward": {
+      "name": "收获",
+      "help": ""
+    }
+  },
+  "Scheduler": {
+    "_info": {
+      "name": "Scheduler._info.name",
+      "help": ""
+    },
+    "Enable": {
+      "name": "Scheduler.Enable.name",
+      "help": "",
+      "True": "True",
+      "False": "False"
+    },
+    "NextRun": {
+      "name": "Scheduler.NextRun.name",
+      "help": ""
+    },
+    "Command": {
+      "name": "Scheduler.Command.name",
+      "help": ""
+    },
+    "SuccessInterval": {
+      "name": "Scheduler.SuccessInterval.name",
+      "help": ""
+    },
+    "FailureInterval": {
+      "name": "Scheduler.FailureInterval.name",
+      "help": ""
+    },
+    "ServerUpdate": {
+      "name": "Scheduler.ServerUpdate.name",
+      "help": ""
+    }
+  },
+  "Emulator": {
+    "_info": {
+      "name": "Emulator._info.name",
+      "help": ""
+    },
+    "Serial": {
+      "name": "Emulator.Serial.name",
+      "help": ""
+    },
+    "PackageName": {
+      "name": "Emulator.PackageName.name",
+      "help": "",
+      "auto": "auto"
+    },
+    "ServerName": {
+      "name": "Emulator.ServerName.name",
+      "help": "",
+      "disabled": "disabled"
+    },
+    "ScreenshotMethod": {
+      "name": "Emulator.ScreenshotMethod.name",
+      "help": "",
+      "auto": "auto",
+      "ADB": "ADB",
+      "ADB_nc": "ADB_nc",
+      "uiautomator2": "uiautomator2",
+      "aScreenCap": "aScreenCap",
+      "aScreenCap_nc": "aScreenCap_nc",
+      "DroidCast": "DroidCast",
+      "DroidCast_raw": "DroidCast_raw",
+      "scrcpy": "scrcpy"
+    },
+    "ControlMethod": {
+      "name": "Emulator.ControlMethod.name",
+      "help": "",
+      "ADB": "ADB",
+      "uiautomator2": "uiautomator2",
+      "minitouch": "minitouch",
+      "Hermit": "Hermit",
+      "MaaTouch": "MaaTouch"
+    },
+    "ScreenshotDedithering": {
+      "name": "Emulator.ScreenshotDedithering.name",
+      "help": ""
+    },
+    "AdbRestart": {
+      "name": "Emulator.AdbRestart.name",
+      "help": ""
+    }
+  },
+  "Error": {
+    "_info": {
+      "name": "Error._info.name",
+      "help": ""
+    },
+    "HandleError": {
+      "name": "Error.HandleError.name",
+      "help": ""
+    },
+    "SaveError": {
+      "name": "Error.SaveError.name",
+      "help": ""
+    },
+    "OnePushConfig": {
+      "name": "Error.OnePushConfig.name",
+      "help": ""
+    },
+    "ScreenshotLength": {
+      "name": "Error.ScreenshotLength.name",
+      "help": ""
+    }
+  },
+  "Optimization": {
+    "_info": {
+      "name": "Optimization._info.name",
+      "help": ""
+    },
+    "ScreenshotInterval": {
+      "name": "Optimization.ScreenshotInterval.name",
+      "help": ""
+    },
+    "CombatScreenshotInterval": {
+      "name": "Optimization.CombatScreenshotInterval.name",
+      "help": ""
+    },
+    "TaskHoardingDuration": {
+      "name": "Optimization.TaskHoardingDuration.name",
+      "help": ""
+    },
+    "WhenTaskQueueEmpty": {
+      "name": "Optimization.WhenTaskQueueEmpty.name",
+      "help": "",
+      "stay_there": "stay_there",
+      "goto_main": "goto_main",
+      "close_game": "close_game"
+    }
+  },
+  "AlasLock1": {
+    "_info": {
+      "name": "AlasLock1._info.name",
+      "help": "AlasLock1._info.help"
+    },
+    "type": {
+      "name": "AlasLock1.type.name",
+      "help": "AlasLock1.type.help"
+    },
+    "value": {
+      "name": "AlasLock1.value.name",
+      "help": "AlasLock1.value.help"
+    },
+    "display": {
+      "name": "AlasLock1.display.name",
+      "help": "AlasLock1.display.help"
+    }
+  },
+  "AlasLock2": {
+    "_info": {
+      "name": "AlasLock2._info.name",
+      "help": "AlasLock2._info.help"
+    },
+    "type": {
+      "name": "AlasLock2.type.name",
+      "help": "AlasLock2.type.help"
+    },
+    "value": {
+      "name": "AlasLock2.value.name",
+      "help": "AlasLock2.value.help"
+    },
+    "display": {
+      "name": "AlasLock2.display.name",
+      "help": "AlasLock2.display.help"
+    }
+  },
+  "AlasLock3": {
+    "_info": {
+      "name": "AlasLock3._info.name",
+      "help": "AlasLock3._info.help"
+    },
+    "type": {
+      "name": "AlasLock3.type.name",
+      "help": "AlasLock3.type.help"
+    },
+    "value": {
+      "name": "AlasLock3.value.name",
+      "help": "AlasLock3.value.help"
+    },
+    "display": {
+      "name": "AlasLock3.display.name",
+      "help": "AlasLock3.display.help"
+    }
+  },
+  "AaaTrainingDaily": {
+    "_info": {
+      "name": "训练所",
+      "help": ""
+    },
+    "BattleExercises": {
+      "name": "战斗演习",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
+    },
+    "HuntingLand": {
+      "name": "狩猎行动-地面",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
+    },
+    "HuntingAir": {
+      "name": "狩猎行动-空域",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
+    },
+    "ExpansionTraining": {
+      "name": "拓展训练",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
+    },
+    "Resourcepreparation": {
+      "name": "资源筹备",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
+    }
+  },
+  "AaaBar": {
+    "_info": {
+      "name": "酒馆夜话",
+      "help": ""
+    },
+    "SendGifts": {
+      "name": "送礼",
+      "help": ""
+    },
+    "Touch": {
+      "name": "每日摸头",
+      "help": ""
+    }
+  },
+  "AaaExploration": {
+    "_info": {
+      "name": "探索",
+      "help": ""
+    },
+    "Enable": {
+      "name": "启用任务",
+      "help": ""
+    },
+    "value": {
+      "name": "AaaExploration.value.name",
+      "help": ""
+    },
+    "option": {
+      "name": "AaaExploration.option.name",
+      "help": ""
+    }
+  },
+  "AaaStorage": {
+    "_info": {
+      "name": "资源仓库",
+      "help": ""
+    },
+    "Enable": {
+      "name": "仓库每日",
+      "help": ""
+    }
+  },
+  "AaaAirship": {
+    "_info": {
+      "name": "空艇远征",
+      "help": ""
+    },
+    "Enable": {
+      "name": "启用任务",
+      "help": ""
+    }
+  },
+  "AaaMainDaily": {
+    "_info": {
+      "name": "每日主线",
+      "help": ""
+    },
+    "Enable": {
+      "name": "启用任务",
+      "help": ""
+    }
+  },
+  "AaaTrain": {
+    "_info": {
+      "name": "武装押运",
+      "help": ""
+    },
+    "Enable": {
+      "name": "启用任务",
+      "help": ""
+    }
+  },
+  "AaaFactory": {
+    "_info": {
+      "name": "意识工厂",
+      "help": ""
+    },
+    "Enable": {
+      "name": "AaaFactory.Enable.name",
+      "help": ""
+    }
+  },
+  "AaaRecovery": {
+    "_info": {
+      "name": "AaaRecovery._info.name",
+      "help": ""
+    },
+    "Enable": {
+      "name": "AaaRecovery.Enable.name",
+      "help": ""
+    }
+  },
+  "AaaReward": {
+    "_info": {
+      "name": "AaaReward._info.name",
+      "help": ""
+    },
+    "Enable": {
+      "name": "AaaReward.Enable.name",
+      "help": ""
+    }
+  },
+  "Storage": {
+    "_info": {
+      "name": "Storage._info.name",
+      "help": ""
+    },
+    "Storage": {
+      "name": "Storage.Storage.name",
+      "help": ""
+    }
+  }
+}
