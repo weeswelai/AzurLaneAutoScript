@@ -3,6 +3,7 @@ import os
 MOD_DICT = {
     'maa': 'AlasMaaBridge',
     'fpy': 'AlasFpyBridge',
+    'aaa': 'AlasAaaBridge',
 }
 MOD_FUNC_DICT = {
     'MaaCopilot': 'maa',

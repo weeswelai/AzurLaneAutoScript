@@ -39,11 +39,11 @@ class GeneratedConfig:
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game
 
     # Group `AaaTrainingDaily`
-    AaaTrainingDaily_BattleExercises = 6  # 1, 2, 3, 4, 5, 6
-    AaaTrainingDaily_HuntingLand = 6  # 1, 2, 3, 4, 5, 6
-    AaaTrainingDaily_HuntingAir = 6  # 1, 2, 3, 4, 5, 6
-    AaaTrainingDaily_ExpansionTraining = 6  # 1, 2, 3, 4, 5, 6
-    AaaTrainingDaily_Resourcepreparation = 6  # 1, 2, 3, 4, 5, 6
+    AaaTrainingDaily_BattleExercises = 6  # 0, 1, 2, 3, 4, 5, 6
+    AaaTrainingDaily_HuntingLand = 6  # 0, 1, 2, 3, 4, 5, 6
+    AaaTrainingDaily_HuntingAir = 6  # 0, 1, 2, 3, 4, 5, 6
+    AaaTrainingDaily_ExpansionTraining = 6  # 0, 1, 2, 3, 4, 5, 6
+    AaaTrainingDaily_Resourcepreparation = 6  # 0, 1, 2, 3, 4, 5, 6
 
     # Group `AaaBar`
     AaaBar_SendGifts = True

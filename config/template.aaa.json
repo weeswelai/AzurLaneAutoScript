@@ -1,0 +1,215 @@
+{
+  "Aaa": {
+    "Emulator": {
+      "Serial": "auto",
+      "PackageName": "auto",
+      "ServerName": "disabled",
+      "ScreenshotMethod": "auto",
+      "ControlMethod": "minitouch",
+      "ScreenshotDedithering": false,
+      "AdbRestart": false
+    },
+    "Error": {
+      "HandleError": true,
+      "SaveError": true,
+      "OnePushConfig": "provider: null",
+      "ScreenshotLength": 1
+    },
+    "Optimization": {
+      "ScreenshotInterval": 0.3,
+      "CombatScreenshotInterval": 1.0,
+      "TaskHoardingDuration": 0,
+      "WhenTaskQueueEmpty": "goto_main"
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "Restart": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Restart",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaTrainingDaily": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaTrainingDaily",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaTrainingDaily": {
+      "BattleExercises": 6,
+      "HuntingLand": 6,
+      "HuntingAir": 6,
+      "ExpansionTraining": 6,
+      "Resourcepreparation": 6
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaBar": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaBar",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaBar": {
+      "SendGifts": true,
+      "Touch": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaExploration": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaExploration",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaExploration": {
+      "Enable": true,
+      "value": 1,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaStorage": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaStorage",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaStorage": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaAirship": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaAirship",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaAirship": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaMainDaily": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaMainDaily",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaMainDaily": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaTrain": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaTrain",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaTrain": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaFactory": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaFactory",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaFactory": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaRecovery": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaRecovery",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaRecovery": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
+  "AaaReward": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "AaaReward",
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
+      "ServerUpdate": "05:00"
+    },
+    "AaaReward": {
+      "Enable": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  }
+}

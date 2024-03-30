@@ -1,12 +1,9 @@
-import os
-import json
-
-from cached_property import cached_property
-
 from alas import AzurLaneAutoScript
+from cached_property import cached_property
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 from submodule.AlasAaaBridge.module.config.config import AshArmsConfig
+
 
 class AshArmsAgent(AzurLaneAutoScript):
     @cached_property
@@ -24,8 +21,6 @@ class AshArmsAgent(AzurLaneAutoScript):
     def restart(self):
         from submodule.AlasAaaBridge.module.handler.login import LoginHandler
         LoginHandler(config=self.config, device=self.device).app_restart()
-        
-        
 
     def aaa_training_daily(self):
         from submodule.AlasAaaBridge.module.daily.daily import TrainingDaily

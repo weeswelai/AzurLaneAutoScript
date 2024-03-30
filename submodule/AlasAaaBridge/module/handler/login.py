@@ -1,13 +1,30 @@
+import module.config.server as server
+
 from module.base.timer import Timer
 from module.handler.login import LoginHandler
 from module.logger import logger
 from submodule.AlasAaaBridge.module.handler.assets import *
 from submodule.AlasAaaBridge.module.ui.assets import MAIN_GOTO_CAMPAIGN, GOTO_MAIN
 
+
 MAIN_CHECK = MAIN_GOTO_CAMPAIGN
 
 
 class LoginHandler(LoginHandler):
+    def handle_cn_user_agreement(self):
+        if not self._user_agreement_timer.reached():
+            return False
+
+        confirm = self.image_color_button(
+            area=(640, 360, 1280, 720), color=(35, 173, 229),
+            color_threshold=245, encourage=5, name='AGREEMENT_CONFIRM')
+        if confirm is None:
+            return False
+        # User login
+        self.device.click(confirm)
+        self._user_agreement_timer.reset()
+        return True
+
     def _handle_app_login(self):
         """
         Pages:
@@ -37,6 +54,10 @@ class LoginHandler(LoginHandler):
             else:
                 confirm_timer.reset()
 
+            if server.server == 'cn' and not login_success:
+                if self.handle_cn_user_agreement():
+                    continue
+
             # Login
             if self.appear(LOGIN_CHECK, offset=(30, 30), interval=5) and LOGIN_CHECK.match_appear_on(self.device.image):
                 self.device.click(LOGIN_CHECK)
@@ -61,15 +82,6 @@ class LoginHandler(LoginHandler):
                 self.appear(LOGIN_ITEM_MESSAGE_CHECK, offset=(30, 30), interval=3):
                 self.device.click(LOGIN_SAFE_AREA)
                 continue
-            
+
             if self.appear_then_click(GOTO_MAIN, offset=(30, 30), interval=3):
                 continue
-
-
-
-
-
-
-    
-
-
