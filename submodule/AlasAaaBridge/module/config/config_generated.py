@@ -42,6 +42,7 @@ class GeneratedConfig:
     AaaTrainingDaily_BattleExercises = 6  # 0, 1, 2, 3, 4, 5, 6
     AaaTrainingDaily_HuntingLand = 6  # 0, 1, 2, 3, 4, 5, 6
     AaaTrainingDaily_HuntingAir = 6  # 0, 1, 2, 3, 4, 5, 6
+    AaaTrainingDaily_HuntingLandAndAir = 6  # 0, 1, 2, 3, 4, 5, 6
     AaaTrainingDaily_ExpansionTraining = 6  # 0, 1, 2, 3, 4, 5, 6
     AaaTrainingDaily_Resourcepreparation = 6  # 0, 1, 2, 3, 4, 5, 6
 

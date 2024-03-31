@@ -3,16 +3,15 @@ from datetime import datetime
 import cv2
 
 from module.base.button import ButtonGrid
-
+from module.logger import logger
+from module.ocr.ocr import Digit, DigitCounter
+from module.ui.scroll import Scroll
+from submodule.AlasAaaBridge.module.combat.combat import COMBAT_PREPARE_CHECK, Combat
 from submodule.AlasAaaBridge.module.daily.assets import *
+from submodule.AlasAaaBridge.module.ui.assets import (DAILY_CHECK,
+                                                      DAILY_ENTER_CHECK)
 from submodule.AlasAaaBridge.module.ui.page import page_daily
 from submodule.AlasAaaBridge.module.ui.ui import UI
-from submodule.AlasAaaBridge.module.combat.combat import Combat, COMBAT_PREPARE_CHECK
-from submodule.AlasAaaBridge.module.ui.assets import DAILY_CHECK, DAILY_ENTER_CHECK
-from module.ui.scroll import Scroll
-from module.ocr.ocr import Digit, DigitCounter
-from module.logger import logger
-
 
 DAILY_ENTER_BUTTON_GRID = ButtonGrid(origin=(147, 433), delta=(260, 0), button_shape=(214, 110), grid_shape=(4, 1))
 OCR_DAILY_GRID = ButtonGrid(origin=(223, 545), delta=(260, 0), button_shape=(63, 31), grid_shape=(4, 1))
@@ -27,22 +26,20 @@ class OcrDaily(DigitCounter):
         return cv2.threshold(image, 150, 255, cv2.THRESH_BINARY_INV)[1]
 
 
-def get_today_hunting():
-    today = datetime.now().weekday()
+def _get_training_attr():
+    today = datetime.now().weekday() + 1
     if today in (1, 3, 5):
-        return "AaaTrainingDaily_HuntingLand"
+        hunting = "AaaTrainingDaily_HuntingLand"
     if today in (2, 4, 6):
-        return "AaaTrainingDaily_HuntingAir"
+        hunting = "AaaTrainingDaily_HuntingAir"
     if today == 7:
-        return "AaaTrainingDaily_HuntingLandAndAir"
-
-
-DAILY = {
-    0: "AaaTrainingDaily_BattleExercises",
-    1: get_today_hunting(),
-    2: "AaaTrainingDaily_ExpansionTraining",
-    3: "AaaTrainingDaily_Resourcepreparation"
-}
+        hunting = "AaaTrainingDaily_HuntingLandAndAir"
+    return {
+        0: "AaaTrainingDaily_BattleExercises",
+        1: hunting,
+        2: "AaaTrainingDaily_ExpansionTraining",
+        3: "AaaTrainingDaily_Resourcepreparation"
+    }
 
 
 class TrainingDaily(Combat, UI):
@@ -115,18 +112,19 @@ class TrainingDaily(Combat, UI):
             out: page_daily
         """
         current = 0
+        daily = _get_training_attr()
         while 1:
             self.ui_ensure(page_daily)
             if current > 3:
                 break
-            difficulty = getattr(self.config, DAILY[current])
-            logger.attr(DAILY[current], difficulty)
+            difficulty = getattr(self.config, daily[current])
+            logger.attr(daily[current], difficulty)
             remain, _, _ = self._get_daily_ocr(current).ocr(self.device.image)
             # difficulty will be 0, 1, 2, 3, 4, 5, 6. 0 mean not combat
 
             if remain > 0:
                 if difficulty > 0:
-                    logger.hr(DAILY[current], 3)
+                    logger.hr(daily[current], 3)
                     self.enter_daily_detail(current, skip_first_screenshot=True)
                     self.daily_combat_enter(difficulty)
                     self.acting_combat(break_button=DAILY_ENTER_CHECK,

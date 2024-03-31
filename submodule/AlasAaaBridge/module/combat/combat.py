@@ -62,8 +62,8 @@ class Combat(ModuleBase):
         self.set_acting_combat(skip_first_screenshot=skip_first_screenshot)
         skip_first_screenshot = True
 
-        self.interval_clear(BATTLE_STATUS_S, BATTLE_STATUS_A,
-                            BATTLE_STATUS_B, INFO_POPUP_COMFIRM)
+        self.interval_clear((BATTLE_STATUS_S, BATTLE_STATUS_A,
+                             BATTLE_STATUS_B, INFO_POPUP_COMFIRM))
 
         while 1:
             if skip_first_screenshot:
