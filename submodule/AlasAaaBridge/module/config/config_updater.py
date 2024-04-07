@@ -1,6 +1,3 @@
-import sys
-sys.path.append('i:/AzurLaneAutoScript')
-
 from cached_property import cached_property
 
 from module.base.timer import timer
