@@ -40,6 +40,10 @@ class AshArmsAgent(AzurLaneAutoScript):
         from submodule.AlasAaaBridge.module.daily.daily import TrainingDaily
         TrainingDaily(config=self.config, device=self.device).run()
 
+    def aaa_reward(self):
+        from submodule.AlasAaaBridge.module.reward.reward import Reward
+        Reward(config=self.config, device=self.device).run()
+
 
 def loop(config_name):
     AshArmsAgent(config_name).loop()

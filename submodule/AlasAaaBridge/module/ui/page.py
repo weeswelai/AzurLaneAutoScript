@@ -23,3 +23,8 @@ page_campaign_menu.link(button=CAMPAIGN_MENU_GOTO_DAILY, destination=page_daily)
 page_daily_enter = Page(DAILY_ENTER_CHECK)
 page_daily_enter.link(button=GOTO_MAIN, destination=page_main)
 page_daily_enter.link(button=BACK_ARROW, destination=page_daily)
+
+# Reward
+page_reward = Page(MISSION_CHECK)
+page_reward.link(button=GOTO_MAIN, destination=page_main)
+page_main.link(MISSION_ENTER, destination=page_reward)

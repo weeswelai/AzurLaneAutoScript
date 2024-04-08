@@ -14,3 +14,11 @@ Restart:
     # SuccessInterval: 0
     # FailureInterval: 0
     # ServerUpdate: 00:00
+
+AaaReward:
+  Scheduler:
+    Enable:
+      type: state
+      value: true
+      option: [ true, ]
+      option_bold: [ true, ]

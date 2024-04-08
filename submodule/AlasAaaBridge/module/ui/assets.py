@@ -11,4 +11,6 @@ DAILY_ENTER_CHECK = Button(area={'cn': (326, 186, 404, 200)}, color={'cn': (32, 
 GOTO_MAIN = Button(area={'cn': (1215, 39, 1237, 59)}, color={'cn': (123, 123, 123)}, button={'cn': (1215, 39, 1237, 59)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/GOTO_MAIN.png'})
 INFO_POPUP_COMFIRM = Button(area={'cn': (699, 458, 886, 519)}, color={'cn': (205, 67, 42)}, button={'cn': (699, 458, 886, 519)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/INFO_POPUP_COMFIRM.png'})
 MAIN_GOTO_CAMPAIGN = Button(area={'cn': (931, 316, 1121, 359)}, color={'cn': (174, 175, 178)}, button={'cn': (931, 316, 1121, 359)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/MAIN_GOTO_CAMPAIGN.png'})
+MISSION_CHECK = Button(area={'cn': (158, 28, 191, 45)}, color={'cn': (118, 118, 118)}, button={'cn': (158, 28, 191, 45)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/MISSION_CHECK.png'})
+MISSION_ENTER = Button(area={'cn': (863, 633, 901, 704)}, color={'cn': (113, 111, 104)}, button={'cn': (863, 633, 901, 704)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/MISSION_ENTER.png'})
 TRAINING_DAILY = Button(area={'cn': (382, 595, 472, 678)}, color={'cn': (69, 65, 64)}, button={'cn': (382, 595, 472, 678)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/TRAINING_DAILY.png'})

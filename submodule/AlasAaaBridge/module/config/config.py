@@ -10,6 +10,7 @@ from submodule.AlasAaaBridge.module.config.config_updater import ConfigUpdater
 class AshArmsConfig(AzurLaneConfig, ConfigUpdater, GeneratedConfig):
     SCHEDULER_PRIORITY = """
         Restart
+      > AaaReward
       > AaaTrainingDaily
       > AaaExploration
       > AaaMainDaily

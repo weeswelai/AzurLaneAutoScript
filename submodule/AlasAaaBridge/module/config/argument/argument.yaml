@@ -91,5 +91,3 @@ AaaFactory:
   Enable: True
 AaaRecovery: 
   Enable: True
-AaaReward: 
-  Enable: True
