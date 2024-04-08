@@ -1,4 +1,6 @@
+from module.base.timer import Timer
 from module.logger import logger
+from module.ocr.ocr import Digit
 from module.ui.switch import Switch
 from submodule.AlasAaaBridge.module.base.base import ModuleBase
 from submodule.AlasAaaBridge.module.combat.assets import *
@@ -7,6 +9,7 @@ from submodule.AlasAaaBridge.module.ui.assets import INFO_POPUP_COMFIRM
 
 COMBAT_PREPARE_CHECK = COMBAT_SUPPLY
 
+OCR_ROUNDS = Digit(OCR_BATTLE_ROUNDS, letter=(228, 228, 228), threshold=128, name='OCR_BATTLE_ROUNDS', alphabet='0123456789')
 
 ACTING_PREPARE_SWITCH = Switch("COMBAT_AUTO_PREPARE")
 ACTING_PREPARE_SWITCH.add_status("ready", ACTING_COMBAT_READY, ACTING_COMBAT)
@@ -58,12 +61,15 @@ class Combat(ModuleBase):
             in: COMBAT_PREPARE_CHECK
             out: break_button
         """
-        round = 0
         self.set_acting_combat(skip_first_screenshot=skip_first_screenshot)
         skip_first_screenshot = True
 
         self.interval_clear((BATTLE_STATUS_S, BATTLE_STATUS_A,
                              BATTLE_STATUS_B, INFO_POPUP_COMFIRM))
+
+        show_round = Timer(30).start()
+        self.device.screenshot_interval_set('combat')
+        OCR_ROUNDS.ocr(self.device.image)
 
         while 1:
             if skip_first_screenshot:
@@ -71,9 +77,13 @@ class Combat(ModuleBase):
             else:
                 self.device.screenshot()
 
-            # round = # TODO ocr round
-
             # TODO Processing timeout, alas's battle timeout is 3 minutes
+
+            if self.appear(BATTLE_AUTO, offset=(20, 20), interval=5):
+                raise  # TODO 当前不在代理作战中
+
+            if show_round.reached_and_reset():
+                OCR_ROUNDS.ocr(self.device.image)
 
             if self.appear(ACTING_BATTLE_CHECK, offset=(20, 20), interval=5):
                 continue
@@ -91,4 +101,5 @@ class Combat(ModuleBase):
                 continue
 
             if self.appear(break_button, offset=offset):
+                self.device.screenshot_interval_set()
                 break

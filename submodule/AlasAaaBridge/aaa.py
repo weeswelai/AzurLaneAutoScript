@@ -18,6 +18,20 @@ class AshArmsAgent(AzurLaneAutoScript):
             logger.exception(e)
             exit(1)
 
+    @cached_property
+    def device(self):
+        try:
+            from module.device.device import Device
+            device = Device(config=self.config)
+            device.stuck_long_wait_list = ['BATTLE_STATUS_S', 'ACTING_BATTLE_CHECK', 'BATTLE_AUTO', 'LOGIN_CHECK']
+            return device
+        except RequestHumanTakeover:
+            logger.critical('Request human takeover')
+            exit(1)
+        except Exception as e:
+            logger.exception(e)
+            exit(1)
+
     def restart(self):
         from submodule.AlasAaaBridge.module.handler.login import LoginHandler
         LoginHandler(config=self.config, device=self.device).app_restart()

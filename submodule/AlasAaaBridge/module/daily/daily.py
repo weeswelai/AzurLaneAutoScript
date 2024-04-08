@@ -122,6 +122,11 @@ class TrainingDaily(Combat, UI):
             remain, _, _ = self._get_daily_ocr(current).ocr(self.device.image)
             # difficulty will be 0, 1, 2, 3, 4, 5, 6. 0 mean not combat
 
+            if OCR_DAILY_ALLOY.ocr(self.device.image) < 150:
+                logger.info("ALLOY less than 150, delay task")
+                # TODO 体力不足150, 延迟任务并调度收获任务
+                pass
+
             if remain > 0:
                 if difficulty > 0:
                     logger.hr(daily[current], 3)
