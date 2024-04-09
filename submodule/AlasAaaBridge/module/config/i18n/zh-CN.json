@@ -357,16 +357,6 @@
       "help": ""
     }
   },
-  "AaaReward": {
-    "_info": {
-      "name": "AaaReward._info.name",
-      "help": ""
-    },
-    "Enable": {
-      "name": "AaaReward.Enable.name",
-      "help": ""
-    }
-  },
   "Storage": {
     "_info": {
       "name": "Storage._info.name",

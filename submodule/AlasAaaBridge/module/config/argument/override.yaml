@@ -18,7 +18,7 @@ Restart:
 AaaReward:
   Scheduler:
     Enable:
-      type: state
+      type: lock
       value: true
       option: [ true, ]
       option_bold: [ true, ]

@@ -206,9 +206,6 @@
       "FailureInterval": 120,
       "ServerUpdate": "05:00"
     },
-    "AaaReward": {
-      "Enable": true
-    },
     "Storage": {
       "Storage": {}
     }

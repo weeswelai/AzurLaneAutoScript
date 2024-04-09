@@ -709,7 +709,7 @@
   "AaaReward": {
     "Scheduler": {
       "Enable": {
-        "type": "state",
+        "type": "lock",
         "value": true,
         "option": [
           true
@@ -742,12 +742,6 @@
         "type": "input",
         "value": "05:00",
         "display": "hide"
-      }
-    },
-    "AaaReward": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true
       }
     },
     "Storage": {

@@ -5,7 +5,7 @@ from module.config import config_updater
 from module.config.utils import *
 
 
-ALASLOCK_COUNT = 3
+ALASLOCK_COUNT = 2
 
 
 class ConfigGenerator(config_updater.ConfigGenerator):

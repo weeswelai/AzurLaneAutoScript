@@ -73,8 +73,5 @@ class GeneratedConfig:
     # Group `AaaRecovery`
     AaaRecovery_Enable = True
 
-    # Group `AaaReward`
-    AaaReward_Enable = True
-
     # Group `Storage`
     Storage_Storage = {}
