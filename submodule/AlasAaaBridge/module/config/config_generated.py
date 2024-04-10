@@ -46,9 +46,16 @@ class GeneratedConfig:
     AaaTrainingDaily_ExpansionTraining = 6  # 0, 1, 2, 3, 4, 5, 6
     AaaTrainingDaily_Resourcepreparation = 6  # 0, 1, 2, 3, 4, 5, 6
 
-    # Group `AaaBar`
-    AaaBar_SendGifts = True
-    AaaBar_Touch = True
+    # Group `AaaBarGiveGifts`
+    AaaBarGiveGifts_Enable = True
+    AaaBarGiveGifts_GiveCount = 3  # 1, 3
+    AaaBarGiveGifts_SwitchArms = True
+    AaaBarGiveGifts_WeeklyTaskFinish = True
+    AaaBarGiveGifts_GiftsGiven = 0
+
+    # Group `AaaBarTouch`
+    AaaBarTouch_Enable = True
+    AaaBarTouch_TouchSwitchArms = True
 
     # Group `AaaExploration`
     AaaExploration_Enable = True

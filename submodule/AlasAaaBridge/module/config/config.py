@@ -12,6 +12,7 @@ class AshArmsConfig(AzurLaneConfig, ConfigUpdater, GeneratedConfig):
         Restart
       > AaaReward
       > AaaTrainingDaily
+      > AaaBar
       > AaaExploration
       > AaaMainDaily
       > AaaTrain

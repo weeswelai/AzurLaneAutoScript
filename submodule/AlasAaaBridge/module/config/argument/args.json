@@ -315,12 +315,38 @@
         "display": "hide"
       }
     },
-    "AaaBar": {
-      "SendGifts": {
+    "AaaBarGiveGifts": {
+      "Enable": {
         "type": "checkbox",
         "value": true
       },
-      "Touch": {
+      "GiveCount": {
+        "type": "select",
+        "value": 3,
+        "option": [
+          1,
+          3
+        ]
+      },
+      "SwitchArms": {
+        "type": "checkbox",
+        "value": true
+      },
+      "WeeklyTaskFinish": {
+        "type": "checkbox",
+        "value": true
+      },
+      "GiftsGiven": {
+        "type": "input",
+        "value": 0
+      }
+    },
+    "AaaBarTouch": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true
+      },
+      "TouchSwitchArms": {
         "type": "checkbox",
         "value": true
       }

@@ -265,18 +265,46 @@
       "6": "6"
     }
   },
-  "AaaBar": {
+  "AaaBarGiveGifts": {
     "_info": {
-      "name": "AaaBar._info.name",
-      "help": "AaaBar._info.help"
+      "name": "AaaBarGiveGifts._info.name",
+      "help": "AaaBarGiveGifts._info.help"
     },
-    "SendGifts": {
-      "name": "AaaBar.SendGifts.name",
-      "help": "AaaBar.SendGifts.help"
+    "Enable": {
+      "name": "AaaBarGiveGifts.Enable.name",
+      "help": "AaaBarGiveGifts.Enable.help"
     },
-    "Touch": {
-      "name": "AaaBar.Touch.name",
-      "help": "AaaBar.Touch.help"
+    "GiveCount": {
+      "name": "AaaBarGiveGifts.GiveCount.name",
+      "help": "AaaBarGiveGifts.GiveCount.help",
+      "1": "1",
+      "3": "3"
+    },
+    "SwitchArms": {
+      "name": "AaaBarGiveGifts.SwitchArms.name",
+      "help": "AaaBarGiveGifts.SwitchArms.help"
+    },
+    "WeeklyTaskFinish": {
+      "name": "AaaBarGiveGifts.WeeklyTaskFinish.name",
+      "help": "AaaBarGiveGifts.WeeklyTaskFinish.help"
+    },
+    "GiftsGiven": {
+      "name": "AaaBarGiveGifts.GiftsGiven.name",
+      "help": "AaaBarGiveGifts.GiftsGiven.help"
+    }
+  },
+  "AaaBarTouch": {
+    "_info": {
+      "name": "AaaBarTouch._info.name",
+      "help": "AaaBarTouch._info.help"
+    },
+    "Enable": {
+      "name": "AaaBarTouch.Enable.name",
+      "help": "AaaBarTouch.Enable.help"
+    },
+    "TouchSwitchArms": {
+      "name": "AaaBarTouch.TouchSwitchArms.name",
+      "help": "AaaBarTouch.TouchSwitchArms.help"
     }
   },
   "AaaExploration": {

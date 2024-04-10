@@ -33,3 +33,9 @@ page_main.link(MISSION_ENTER, destination=page_reward)
 page_city = Page(CITY_CHECK)
 page_city.link(button=GOTO_MAIN, destination=page_main)
 page_main.link(CITY_ENTRANCE, destination=page_city)
+
+# Bar
+page_bar = Page(BAR_CHECK)
+page_bar.link(button=GOTO_MAIN, destination=page_main)
+page_bar.link(button=BACK_ARROW, destination=page_city)
+page_city.link(button=CITY_BAR_ENTRANCE, destination=page_bar)

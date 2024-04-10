@@ -68,9 +68,16 @@
       "FailureInterval": 120,
       "ServerUpdate": "05:00"
     },
-    "AaaBar": {
-      "SendGifts": true,
-      "Touch": true
+    "AaaBarGiveGifts": {
+      "Enable": true,
+      "GiveCount": 3,
+      "SwitchArms": true,
+      "WeeklyTaskFinish": true,
+      "GiftsGiven": 0
+    },
+    "AaaBarTouch": {
+      "Enable": true,
+      "TouchSwitchArms": true
     },
     "Storage": {
       "Storage": {}

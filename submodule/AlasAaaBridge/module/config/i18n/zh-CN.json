@@ -265,18 +265,46 @@
       "6": "难度六"
     }
   },
-  "AaaBar": {
+  "AaaBarGiveGifts": {
     "_info": {
-      "name": "酒馆夜话",
+      "name": "酒馆赠礼",
       "help": ""
     },
-    "SendGifts": {
-      "name": "送礼",
+    "Enable": {
+      "name": "每日赠礼",
       "help": ""
     },
-    "Touch": {
+    "GiveCount": {
+      "name": "赠送次数",
+      "help": "",
+      "1": "1",
+      "3": "3"
+    },
+    "SwitchArms": {
+      "name": "切换下一位Arms",
+      "help": "好感度满了切到下一个好感度未满的Arms"
+    },
+    "WeeklyTaskFinish": {
+      "name": "完成送礼周常任务",
+      "help": "保证在周末完成20次送礼周常任务"
+    },
+    "GiftsGiven": {
+      "name": "已赠送礼物",
+      "help": "已经赠送的礼物数量, 自动记录用于保证周常20次赠礼, 一般不需要修改"
+    }
+  },
+  "AaaBarTouch": {
+    "_info": {
       "name": "每日摸头",
       "help": ""
+    },
+    "Enable": {
+      "name": "每日摸五次头",
+      "help": "摸一次头涨一点好感"
+    },
+    "TouchSwitchArms": {
+      "name": "切换下一位Arms",
+      "help": "好感度满了切到下一个好感度未满的Arms"
     }
   },
   "AaaExploration": {

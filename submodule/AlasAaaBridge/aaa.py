@@ -44,6 +44,10 @@ class AshArmsAgent(AzurLaneAutoScript):
         from submodule.AlasAaaBridge.module.reward.reward import Reward
         Reward(config=self.config, device=self.device).run()
 
+    def aaa_bar(self):
+        from submodule.AlasAaaBridge.module.bar.bar import Bar
+        Bar(config=self.config, device=self.device).run()
+
     def goto_main(self):
         from submodule.AlasAaaBridge.module.handler.login import LoginHandler
         from submodule.AlasAaaBridge.module.ui.ui import UI

@@ -26,7 +26,8 @@ AaaDaily:
       - AaaTrainingDaily
     AaaBar:
       - Scheduler
-      - AaaBar
+      - AaaBarGiveGifts
+      - AaaBarTouch
     AaaExploration:
       - Scheduler
       - AaaExploration
@@ -57,4 +58,3 @@ AaaReward:
       - AaaRecovery
     AaaReward:
       - Scheduler
-      - AaaReward
