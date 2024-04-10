@@ -8,9 +8,8 @@ from module.ocr.ocr import Digit, DigitCounter
 from module.ui.scroll import Scroll
 from submodule.AlasAaaBridge.module.combat.combat import COMBAT_PREPARE_CHECK, Combat
 from submodule.AlasAaaBridge.module.daily.assets import *
-from submodule.AlasAaaBridge.module.ui.assets import (DAILY_CHECK,
-                                                      DAILY_ENTER_CHECK)
-from submodule.AlasAaaBridge.module.ui.page import page_daily
+from submodule.AlasAaaBridge.module.ui.assets import DAILY_CHECK, DAILY_MENU_CHECK
+from submodule.AlasAaaBridge.module.ui.page import page_daily_menu
 from submodule.AlasAaaBridge.module.ui.ui import UI
 
 DAILY_ENTER_BUTTON_GRID = ButtonGrid(origin=(147, 433), delta=(260, 0), button_shape=(214, 110), grid_shape=(4, 1))
@@ -46,11 +45,11 @@ class TrainingDaily(Combat, UI):
     def enter_daily_detail(self, count, skip_first_screenshot=False):
         """
         Pages:
-            in: page_daily
-            out: DAILY_ENTER_CHECK
+            in: page_daily_menu
+            out: DAILY_CHECK
         """
         enter_button = DAILY_ENTER_BUTTON_GRID.buttons[count]
-        self.interval_clear(DAILY_CHECK)
+        self.interval_clear(DAILY_MENU_CHECK)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -58,10 +57,10 @@ class TrainingDaily(Combat, UI):
                 self.device.screenshot()
 
             # End
-            if self.appear(DAILY_ENTER_CHECK, offset=(20, 20)):
+            if self.appear(DAILY_CHECK, offset=(20, 20)):
                 break
 
-            if self.appear(DAILY_CHECK, offset=(20, 20), interval=3):
+            if self.appear(DAILY_MENU_CHECK, offset=(20, 20), interval=3):
                 self.device.click(enter_button)
 
     def scroll_set_bottom(self, skip_first_screenshot=False):
@@ -80,7 +79,7 @@ class TrainingDaily(Combat, UI):
     def daily_combat_enter(self, difficulty, skip_first_screenshot=False):
         """
         Pages:
-            in: DAILY_ENTER_CHECK
+            in: DAILY_CHECK
             out: combat main
         """
         # When slider is at top or bottom, there are 3 fixed buttons,
@@ -97,7 +96,7 @@ class TrainingDaily(Combat, UI):
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
-            if self.appear(DAILY_ENTER_CHECK, offset=(20, 20), interval=3):
+            if self.appear(DAILY_CHECK, offset=(20, 20), interval=3):
                 self.device.click(DAILY_DIFFICULTY_GRID.buttons[count])
 
             if self.appear(COMBAT_PREPARE_CHECK, offset=(20, 20)):
@@ -109,12 +108,12 @@ class TrainingDaily(Combat, UI):
     def training_run(self):
         """
         Page:
-            out: page_daily
+            out: page_daily_menu
         """
         current = 0
         daily = _get_training_attr()
         while 1:
-            self.ui_ensure(page_daily)
+            self.ui_ensure(page_daily_menu)
             if current > 3:
                 break
             difficulty = getattr(self.config, daily[current])
@@ -132,7 +131,7 @@ class TrainingDaily(Combat, UI):
                     logger.hr(daily[current], 3)
                     self.enter_daily_detail(current, skip_first_screenshot=True)
                     self.daily_combat_enter(difficulty)
-                    self.acting_combat(break_button=DAILY_ENTER_CHECK,
+                    self.acting_combat(break_button=DAILY_CHECK,
                                        skip_first_screenshot=True)
                 else:
                     logger.info("difficulty set 0, no combat")

@@ -6,8 +6,8 @@ from module.base.template import Template
 
 BACK_ARROW = Button(area={'cn': (46, 34, 74, 49)}, color={'cn': (107, 106, 107)}, button={'cn': (46, 34, 74, 49)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/BACK_ARROW.png'})
 CITY_ENTRANCE = Button(area={'cn': (1150, 682, 1237, 705)}, color={'cn': (142, 141, 141)}, button={'cn': (1150, 682, 1237, 705)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/CITY_ENTRANCE.png'})
-DAILY_CHECK = Button(area={'cn': (203, 118, 302, 219)}, color={'cn': (116, 135, 135)}, button={'cn': (203, 118, 302, 219)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/DAILY_CHECK.png'})
-DAILY_ENTER_CHECK = Button(area={'cn': (326, 186, 404, 200)}, color={'cn': (32, 106, 109)}, button={'cn': (326, 186, 404, 200)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/DAILY_ENTER_CHECK.png'})
+DAILY_CHECK = Button(area={'cn': (326, 186, 404, 200)}, color={'cn': (32, 106, 109)}, button={'cn': (326, 186, 404, 200)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/DAILY_CHECK.png'})
+DAILY_MENU_CHECK = Button(area={'cn': (203, 118, 302, 219)}, color={'cn': (116, 135, 135)}, button={'cn': (203, 118, 302, 219)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/DAILY_MENU_CHECK.png'})
 GOTO_MAIN = Button(area={'cn': (1215, 39, 1237, 59)}, color={'cn': (123, 123, 123)}, button={'cn': (1215, 39, 1237, 59)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/GOTO_MAIN.png'})
 INFO_POPUP_COMFIRM = Button(area={'cn': (699, 458, 886, 519)}, color={'cn': (205, 67, 42)}, button={'cn': (699, 458, 886, 519)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/INFO_POPUP_COMFIRM.png'})
 MAIN_GOTO_CAMPAIGN = Button(area={'cn': (931, 316, 1121, 359)}, color={'cn': (174, 175, 178)}, button={'cn': (931, 316, 1121, 359)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/MAIN_GOTO_CAMPAIGN.png'})

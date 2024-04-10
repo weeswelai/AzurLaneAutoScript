@@ -15,14 +15,14 @@ page_unknown = Page(None)
 page_unknown.link(button=GOTO_MAIN, destination=page_main)
 
 # Daily
-# TODO test: # Don't enter page_daily from page_campaign
+# TODO test: # Don't enter page_daily_menu from page_campaign
+page_daily_menu = Page(DAILY_MENU_CHECK)
+page_daily_menu.link(button=GOTO_MAIN, destination=page_main)
+page_daily_menu.link(button=BACK_ARROW, destination=page_campaign_menu)
+page_campaign_menu.link(button=CAMPAIGN_MENU_GOTO_DAILY, destination=page_daily_menu)
 page_daily = Page(DAILY_CHECK)
 page_daily.link(button=GOTO_MAIN, destination=page_main)
-page_daily.link(button=BACK_ARROW, destination=page_campaign_menu)
-page_campaign_menu.link(button=CAMPAIGN_MENU_GOTO_DAILY, destination=page_daily)
-page_daily_enter = Page(DAILY_ENTER_CHECK)
-page_daily_enter.link(button=GOTO_MAIN, destination=page_main)
-page_daily_enter.link(button=BACK_ARROW, destination=page_daily)
+page_daily.link(button=BACK_ARROW, destination=page_daily_menu)
 
 # Reward
 page_reward = Page(MISSION_CHECK)
