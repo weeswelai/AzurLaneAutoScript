@@ -730,12 +730,12 @@
       },
       "SuccessInterval": {
         "type": "input",
-        "value": 0,
+        "value": "120-240",
         "display": "hide"
       },
       "FailureInterval": {
         "type": "input",
-        "value": 120,
+        "value": "120-240",
         "display": "hide"
       },
       "ServerUpdate": {

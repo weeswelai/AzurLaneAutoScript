@@ -28,3 +28,8 @@ page_daily.link(button=BACK_ARROW, destination=page_daily_menu)
 page_reward = Page(MISSION_CHECK)
 page_reward.link(button=GOTO_MAIN, destination=page_main)
 page_main.link(MISSION_ENTER, destination=page_reward)
+
+# City
+page_city = Page(CITY_CHECK)
+page_city.link(button=GOTO_MAIN, destination=page_main)
+page_main.link(CITY_ENTRANCE, destination=page_city)

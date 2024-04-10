@@ -202,8 +202,8 @@
       "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "AaaReward",
-      "SuccessInterval": 0,
-      "FailureInterval": 120,
+      "SuccessInterval": "120-240",
+      "FailureInterval": "120-240",
       "ServerUpdate": "05:00"
     },
     "Storage": {

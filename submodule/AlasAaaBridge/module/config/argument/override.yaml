@@ -22,3 +22,5 @@ AaaReward:
       value: true
       option: [ true, ]
       option_bold: [ true, ]
+    SuccessInterval: 120-240
+    FailureInterval: 120-240
