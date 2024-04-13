@@ -23,6 +23,8 @@ class Combat(ModuleBase):
         Page:
             in: COMBAT_PREPARE_CHECK
         """
+        # Click COMBAT_PREPARE goto ACTING_BATTLE_CHECK is slowly
+        acting_check = Timer(1).start()
         self.interval_clear(ACTING_COMBAT, COMBAT_PREPARE)
         while 1:
             if skip_first_screenshot:
@@ -33,7 +35,8 @@ class Combat(ModuleBase):
             if self.appear(ACTING_BATTLE_CHECK):
                 break
 
-            if ACTING_PREPARE_SWITCH.appear(self):
+            if acting_check.reached() and ACTING_PREPARE_SWITCH.appear(self):
+                acting_check.reset()
                 if ACTING_PREPARE_SWITCH.get(self) == "locked":
                     raise AutoCombatIsLocked  # TODO handle AutoCombatIsLocked
                 ACTING_PREPARE_SWITCH.set("ready", self, skip_first_screenshot=True)
