@@ -5,7 +5,6 @@ from module.base.template import Template
 # Don't modify it manually.
 
 BACK_ARROW = Button(area={'cn': (46, 34, 74, 49)}, color={'cn': (107, 106, 107)}, button={'cn': (46, 34, 74, 49)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/BACK_ARROW.png'})
-BAR_CHECK = Button(area={'cn': (156, 27, 234, 45)}, color={'cn': (122, 121, 122)}, button={'cn': (156, 27, 234, 45)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/BAR_CHECK.png'})
 CITY_BAR_ENTRANCE = Button(area={'cn': (1072, 635, 1151, 658)}, color={'cn': (129, 120, 97)}, button={'cn': (1072, 635, 1151, 658)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/CITY_BAR_ENTRANCE.png'})
 CITY_CHECK = Button(area={'cn': (157, 27, 234, 45)}, color={'cn': (134, 135, 135)}, button={'cn': (157, 27, 234, 45)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/CITY_CHECK.png'})
 CITY_ENTRANCE = Button(area={'cn': (1150, 682, 1237, 705)}, color={'cn': (142, 141, 141)}, button={'cn': (1150, 682, 1237, 705)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/CITY_ENTRANCE.png'})
@@ -17,3 +16,4 @@ MAIN_GOTO_CAMPAIGN = Button(area={'cn': (931, 316, 1121, 359)}, color={'cn': (17
 MISSION_CHECK = Button(area={'cn': (158, 28, 191, 45)}, color={'cn': (118, 118, 118)}, button={'cn': (158, 28, 191, 45)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/MISSION_CHECK.png'})
 MISSION_ENTER = Button(area={'cn': (863, 633, 901, 704)}, color={'cn': (113, 111, 104)}, button={'cn': (863, 633, 901, 704)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/MISSION_ENTER.png'})
 TRAINING_DAILY = Button(area={'cn': (382, 595, 472, 678)}, color={'cn': (69, 65, 64)}, button={'cn': (382, 595, 472, 678)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/TRAINING_DAILY.png'})
+UI_BAR_CHECK = Button(area={'cn': (156, 27, 234, 45)}, color={'cn': (122, 121, 122)}, button={'cn': (156, 27, 234, 45)}, file={'cn': './submodule/AlasAaaBridge/assets/cn/ui/UI_BAR_CHECK.png'})
