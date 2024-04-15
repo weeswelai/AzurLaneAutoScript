@@ -18,7 +18,7 @@ ACTING_PREPARE_SWITCH.add_status("locked", ACTING_COMBAT_LOCKED)
 
 
 class Combat(ModuleBase):
-    def set_acting_combat(self, skip_first_screenshot=False):
+    def enter_acting_combat(self, skip_first_screenshot=False):
         """
         Page:
             in: COMBAT_PREPARE_CHECK
@@ -33,6 +33,7 @@ class Combat(ModuleBase):
                 self.device.screenshot()
 
             if self.appear(ACTING_BATTLE_CHECK):
+                logger.info("acting combat start")
                 break
 
             if acting_check.reached() and ACTING_PREPARE_SWITCH.appear(self):
@@ -64,7 +65,7 @@ class Combat(ModuleBase):
             in: COMBAT_PREPARE_CHECK
             out: break_button
         """
-        self.set_acting_combat(skip_first_screenshot=skip_first_screenshot)
+        self.enter_acting_combat(skip_first_screenshot=skip_first_screenshot)
         skip_first_screenshot = True
 
         self.interval_clear((BATTLE_STATUS_S, BATTLE_STATUS_A,
@@ -85,22 +86,25 @@ class Combat(ModuleBase):
             if self.appear(BATTLE_AUTO, offset=(20, 20), interval=5):
                 raise  # TODO 当前不在代理作战中
 
-            if show_round.reached_and_reset():
+            if show_round.reached_and_reset() and self.appear(ACTING_BATTLE_CHECK, offset=(20, 20)):
                 OCR_ROUNDS.ocr(self.device.image)
 
             if self.appear(ACTING_BATTLE_CHECK, offset=(20, 20), interval=5):
                 continue
 
             if self.handle_battle_status():
+                logger.info("combat is end")
                 continue
 
             # TODO handle get new arms popup
 
             if self.appear(GET_ITEM, offset=(20, 20), interval=5):
+                logger.info("get items")
                 self.device.click(BATTLE_STATUS_S)
                 continue
 
             if self.appear_then_click(INFO_POPUP_COMFIRM, interval=5):
+                logger.info("skip info popup")
                 continue
 
             if self.appear(break_button, offset=offset):
