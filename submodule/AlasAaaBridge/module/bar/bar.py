@@ -179,7 +179,7 @@ class Bar(UI):
         if self._last_arms is None:
             self._last_arms = OCR_NAME.ocr(self.device.image)
         level = OCR_AFFINITY_LEVEL.ocr(self.device.image)
-        logger.attr("affinity", level)
+        logger.attr("affinity level", level)
         if level < 5:
             return False
         count = 0
@@ -216,7 +216,6 @@ class Bar(UI):
     # TODO Rewrite this shitty piece of code
     def _gifts_give_once(self, count, skip_first_screenshot=True):
         logger.hr("give once")
-        logger.attr("count", count)
         skip_ocr = False
         gift_idx = difference = 0
         button = GIFTS_GRID.buttons[gift_idx]
@@ -236,6 +235,7 @@ class Bar(UI):
                     continue
 
             if not skip_ocr:
+                logger.attr("affinity", OCR_AFFINITY.ocr(self.device.image)[0])
                 result = OCR_GIFTS.ocr(self.device.image)
                 if not result[gift_idx]:
                     gift_idx += 1
@@ -257,6 +257,7 @@ class Bar(UI):
                 skip_ocr = True
                 continue
 
+            logger.attr("count", count)
             if count:
                 amount = int(result[gift_idx])
                 self.device.multi_click(BAR_GIFTS_GIVE, min(amount, count), interval=(0.5, 0.8))
