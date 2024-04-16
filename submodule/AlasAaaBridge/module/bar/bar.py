@@ -52,16 +52,25 @@ class Bar(UI):
 
     def _appear_BAR_CHECK(self, interval=None):
         # Maybe only one of them will show up
-        return self.appear(BAR_CHECK, offset=(20, 20), interval=interval) or \
+        result = self.appear(BAR_CHECK, offset=(20, 20), interval=interval) or \
             self.appear(BAR_CHECK_2, offset=(20, 20), interval=interval)
+        if result:
+            self.interval_reset((BAR_CHECK, BAR_CHECK_2), interval=interval)
+        return result
 
     def _appear_then_click_BAR_CHECK(self, interval=3):
-        return self.appear_then_click(BAR_CHECK, offset=(20 ,20), interval=interval) or \
+        result = self.appear_then_click(BAR_CHECK, offset=(20 ,20), interval=interval) or \
             self.appear_then_click(BAR_CHECK_2, offset=(20 ,20), interval=interval)
+        if result:
+            self.interval_reset((BAR_CHECK, BAR_CHECK_2), interval=interval)
+        return result
 
     def _appear_BAR_GIFTS_DETAILS(self, interval=None):
-        return self.appear(BAR_GIFTS_GIVE_CHECK, offset=(20, 20), interval=interval) or \
+        result = self.appear(BAR_GIFTS_GIVE_CHECK, offset=(20, 20), interval=interval) or \
             self.appear(BAR_GIFTS_GIVE, offset=(20, 20), interval=interval)
+        if result:
+            self.interval_reset((BAR_GIFTS_GIVE_CHECK, BAR_GIFTS_GIVE), interval=interval)
+        return result
 
     def ensure_bar(self, skip_first_screenshot=True):
         """
@@ -108,6 +117,7 @@ class Bar(UI):
     def get_gifts(self, ocr_result):
         return sum([int(amount) if amount else 0 for amount in ocr_result])
 
+    # TODO Rewrite
     def check_gifts_amount(self):
         """
         Decide how much to give based on amount of gifts,
@@ -122,6 +132,7 @@ class Bar(UI):
             (bool): Whether to return to bar page redisplay gift list
         """
         weekly_need = WEEKLY_GIFTS - self.config.AaaBarGiveGifts_GiftsGiven
+        weekly_need = weekly_need if weekly_need > 0 else 0
         daily_need = self.config.AaaBarGiveGifts_GiveCount - self._gifts_given
         logger.attr("weekly_need", weekly_need)
         logger.attr("daily_need", daily_need)
@@ -130,9 +141,12 @@ class Bar(UI):
             count = max(weekly_need, self.config.AaaBarGiveGifts_WeeklyTaskFinish)
         elif daily_need > 0:
             count = self.config.AaaBarGiveGifts_GiveCount
+        else:
+            count = 0
         logger.attr("gifts need", count)
         result = OCR_GIFTS.ocr(self.device.image)
         self._last_gifts = gifts = self.get_gifts(result)
+        logger.attr("gifts", gifts)
 
         # If gifts is less than daily need
         if gifts < daily_need:
@@ -161,6 +175,37 @@ class Bar(UI):
             return 0
         return count
 
+    def switch_arms(self, skip_first_screenshot=True):
+        if self._last_arms is None:
+            self._last_arms = OCR_NAME.ocr(self.device.image)
+        level = OCR_AFFINITY_LEVEL.ocr(self.device.image)
+        logger.attr("affinity", level)
+        if level < 5:
+            return False
+        count = 0
+        max_count = 10
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self._appear_BAR_CHECK(interval=3) or \
+                self.appear(BAR_GIFTS_GRID_CHECK, offset=(20, 20), interval=3):
+                arms = OCR_NAME.ocr(self.device.image)
+                level = OCR_AFFINITY_LEVEL.ocr(self.device.image)
+                if arms != self._last_arms:
+                    self._last_arms = arms
+                    count += 1
+                if level < 5:
+                    self.interval_clear((BAR_CHECK, BAR_CHECK_2))
+                    return True
+                if count > max_count:
+                    raise
+                if arms == self._last_arms or level == 5:
+                    self.device.click(BAR_SWITCH_LEFT)
+                    continue
+
     def set_dif(self, difference, gifts):
         logger.attr("difference", difference)
         logger.attr("gifts", gifts)
@@ -175,11 +220,20 @@ class Bar(UI):
         skip_ocr = False
         gift_idx = difference = 0
         button = GIFTS_GRID.buttons[gift_idx]
+        wait_gifts_gird = Timer(1).start()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
+
+            # Affinity be already full
+            if self.appear(BAR_AFFINITY_POPUP_INFO, offset=(20, 20), interval=3):
+                if self.config.AaaBarGiveGifts_SwitchArms:
+                    return count
+                else:
+                    self.device.click(BAR_AFFINITY_POPUP_COMFIRM)
+                    continue
 
             if not skip_ocr:
                 result = OCR_GIFTS.ocr(self.device.image)
@@ -187,7 +241,7 @@ class Bar(UI):
                     gift_idx += 1
                     if gift_idx > 8:  # 8 is ninth gift
                         logger.info("9 gifts use up")
-                        return 0
+                        return True
                     button = GIFTS_GRID.buttons[gift_idx]
                 gifts = self.get_gifts(result)
                 difference = self._last_gifts - gifts
@@ -197,7 +251,8 @@ class Bar(UI):
                 count -= difference  # end task
                 difference = 0
 
-            if not self._appear_BAR_GIFTS_DETAILS(interval=3) and count:
+            if wait_gifts_gird.reached_and_reset() and \
+               not self._appear_BAR_GIFTS_DETAILS(interval=3) and count:
                 self.device.click(button)
                 skip_ocr = True
                 continue
@@ -220,17 +275,18 @@ class Bar(UI):
         """
         if count <= 0:
             return False
-        # wait_give_ui = Timer(0.5).start()
-        logger.attr("give count", count)
+        self.interval_clear(BAR_GIFTS_GRID_CHECK)
+        self._last_arms = OCR_NAME.ocr(self.device.image)
+        switch_arms = True
+        wait_give_detail = Timer(1).start()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.appear(BAR_GIFTS_GRID_CHECK, offset=(20, 20), interval=3) \
+            if wait_give_detail.reached_and_reset() and self.appear(BAR_GIFTS_GRID_CHECK, offset=(20, 20), interval=3) \
                and not self._appear_BAR_GIFTS_DETAILS(interval=3):
-                # if wait_give_ui.reached_and_reset():
                 self.device.click(GIFTS_FIRST_BUTTON)
                 continue
 
@@ -238,12 +294,21 @@ class Bar(UI):
             if self._appear_BAR_CHECK():
                 break
 
-            # TODO switch arms
+            if self.appear(BAR_AFFINITY_POPUP_INFO, offset=(20, 20), interval=3):
+                self.device.click(BAR_AFFINITY_POPUP_CANCEL)
+                switch_arms = True
+                continue
+            if switch_arms:
+                self.switch_arms()
+                skip_first_screenshot = True
+                switch_arms = False
 
             if self._appear_BAR_GIFTS_DETAILS():
-                self._gifts_give_once(count)
-                self.ensure_bar()
-                break
+                logger.attr("arms", self._last_arms)
+                logger.attr("give count", count)
+                if not self._gifts_give_once(count):
+                    self.ensure_bar()
+                    break
 
     def bar_give_gift(self, skip_first_screenshot=True):
         """
@@ -253,6 +318,7 @@ class Bar(UI):
         """
         logger.hr("give gift", level=1)
         self.ensure_bar()
+        logger.attr("gifts given", self.config.AaaBarGiveGifts_GiftsGiven)
         self.interval_clear((BAR_CHECK, BAR_CHECK_2))
         wait_gifts_gird = Timer(1).start()
         while 1:
@@ -278,14 +344,6 @@ class Bar(UI):
 
     def bar_arms_touch(self):
         self.ensure_bar()
-
-    def test(self):
-        while 1:
-            self.device.screenshot()
-
-            if self.appear(BAR_GIFTS_GRID_CHECK, offset=(20, 20), interval=3):
-                logger.info("BAR_GIFTS_GRID_CHECK")
-
 
     def run(self):
         self._check_weekly()
